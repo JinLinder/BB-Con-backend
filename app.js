@@ -1,7 +1,11 @@
+require('dotenv').config()
+
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var cors = require('cors');
+var mongoose = require('mongoose')
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -16,5 +20,17 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+
+//DATABASE
+mongoose.connect(process.env.MONGO_URL, {
+    useNewUrlParser: true, 
+    useUnifiedTopology: true
+}, function(err) {
+    if(!err) {
+        console.log("Database connected...");
+    } else {
+        console.log(err);
+    }
+})
 
 module.exports = app;
