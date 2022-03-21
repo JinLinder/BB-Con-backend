@@ -6,11 +6,12 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
 var mongoose = require('mongoose');
-const user = require('./models/user')
+//const user = require('./models/user')
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var loginRouter = require('./routes/login')
+var loginRouter = require('./routes/login');
+var signupRouter=require('./routes/signup');
 var app = express();
 
 
@@ -24,7 +25,8 @@ app.use(cors());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/login', loginRouter)
+app.use('/login', loginRouter);
+app.use('/signup', signupRouter)
 
 //Connect DATABASE
 mongoose.connect(process.env.MONGO_URL, {
@@ -40,12 +42,12 @@ mongoose.connect(process.env.MONGO_URL, {
 
 
 
-const saveUser = new user({
-    username:"test2" ,
-      password:"test" ,
-      babyAge:"test2",
-      location:"test2"
-})
-saveUser.save()
+// const saveUser = new user({
+//     username:"test2" ,
+//       password:"test" ,
+//       babyAge:"test2",
+//       location:"test2"
+// })
+// saveUser.save()
 
 module.exports = app;

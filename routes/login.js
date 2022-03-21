@@ -27,29 +27,4 @@ router.post('/', function(req, res, next){
     });
 })
 
-// router.post('/', function(req, res, next){
-    
-//     user.find({username:req.body.username, })
-//     .then(data => {
-//         if (data.length >= 1) {
-//           if (data[0].password === req.body.password) {
-//             console.log('user match username and password');
-//             res.status(201).json({ message: `Användare: ${req.body.username} inloggad` });
-//           } else {
-//             console.log('wrong password');
-//             res.status(422).json({
-//               message: 'Fel lösenord'
-//             })
-//           }
-//         }
-//         else {
-//           console.log('user not found');
-//           res.status(422).json({ message: `Användare inte hittad` });
-//         }
-//       })  
-//     .catch((err)=> {
-//         console.log(err);
-//     }) 
-// })
-
 module.exports = router;
