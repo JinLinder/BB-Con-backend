@@ -5,7 +5,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
-var mongoose = require('mongoose')
+var mongoose = require('mongoose');
+const user=require('./models/user')
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -21,6 +22,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
+//test data
+
+
 //DATABASE
 mongoose.connect(process.env.MONGO_URL, {
     useNewUrlParser: true, 
@@ -33,4 +37,11 @@ mongoose.connect(process.env.MONGO_URL, {
     }
 })
 
+const saveUser = new user({
+    userName:"test1" ,
+      passWord:"test1" ,
+      babyAge:"test1",
+      location:"test1"
+})
+saveUser.save()
 module.exports = app;
