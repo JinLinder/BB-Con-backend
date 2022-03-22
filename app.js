@@ -12,6 +12,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var loginRouter = require('./routes/login');
 var signupRouter=require('./routes/signup');
+var activityRouter = require('./routes/activity')
 var app = express();
 
 
@@ -26,7 +27,8 @@ app.use(cors());
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/login', loginRouter);
-app.use('/signup', signupRouter)
+app.use('/signup', signupRouter);
+app.use('/activity', activityRouter)
 
 //Connect DATABASE
 mongoose.connect(process.env.MONGO_URL, {
