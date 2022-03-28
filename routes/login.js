@@ -6,7 +6,7 @@ router.post('/', function(req, res, next){
     
     user.find({username:req.body.username})
     .then(data => {
-        if (data.length <= 1) {
+        if (data.length < 1) {
           console.log('Wrong username or password.');
           res.status(422).json({ message: `Wrong username or password.` });
         }
