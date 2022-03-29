@@ -5,9 +5,11 @@ const community=require('../models/community')
 
 //get all posts
 router.get('/', (req, res, next)=>{
-    activity.find({})
-    .then(data=>{console.log(data);});
+    community.find({})
+    .then(data=>{console.log(data);
         res.json(data)
+    });
+        
 })
 
 //post new post
