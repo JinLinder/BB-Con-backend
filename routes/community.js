@@ -12,14 +12,17 @@ router.get('/', (req, res, next)=>{
 
 //post new post
 router.post('/add', (req, res, next)=>{
-    const savecommunity = new community({
+    const saveCommunity = new community({
+        postId:req.body.postId,
         author:req.body.author,
         title:req.body.title,
         text:req.body.text
     })
-    savecommunity.save()
+    saveCommunity.save()
 })
 
 //get my posts
 
 //get single post
+
+module.exports = router;

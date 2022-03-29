@@ -13,7 +13,7 @@ var usersRouter = require('./routes/users');
 var loginRouter = require('./routes/login');
 var signupRouter=require('./routes/signup');
 var activityRouter = require('./routes/activity')
-var communityRouter = require('./models/community')
+var communityRouter = require('./routes/community')
 var app = express();
 
 

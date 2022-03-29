@@ -1,5 +1,8 @@
 const mongoose = require('mongoose');
 const communitySchema = mongoose.Schema({
+    postId:{
+        type:String
+    },
     author: {
         type:String
     },
