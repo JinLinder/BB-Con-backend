@@ -13,6 +13,7 @@ var usersRouter = require('./routes/users');
 var loginRouter = require('./routes/login');
 var signupRouter=require('./routes/signup');
 var activityRouter = require('./routes/activity')
+var communityRouter = require('./models/community')
 var app = express();
 
 
@@ -28,7 +29,8 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/login', loginRouter);
 app.use('/signup', signupRouter);
-app.use('/activity', activityRouter)
+app.use('/activity', activityRouter);
+app.use('/community', communityRouter)
 
 //Connect DATABASE
 mongoose.connect(process.env.MONGO_URL, {
@@ -44,12 +46,5 @@ mongoose.connect(process.env.MONGO_URL, {
 
 
 
-// const saveUser = new user({
-//     username:"test2" ,
-//       password:"test" ,
-//       babyAge:"test2",
-//       location:"test2"
-// })
-// saveUser.save()
 
 module.exports = app;

@@ -26,6 +26,11 @@ router.post('/add', (req, res, next) => {
     saveActivity.save()
 })
 
+// get my activities
+router.get('/myAct', (req, res, next)=>{
+    
+})
+
 // get single activities
 router.get('/item/:actId', (req, res, next)=>{
     activity.find({actId: req.params.actId})
