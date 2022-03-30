@@ -35,7 +35,8 @@ app.use('/community', communityRouter)
 //Connect DATABASE
 mongoose.connect(process.env.MONGO_URL, {
     useNewUrlParser: true, 
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    // useFindAndModify: false,
 }, function(err) {
     if(!err) {
         console.log("Database connected...");

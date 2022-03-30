@@ -37,4 +37,12 @@ router.get('/item/:actId', (req, res, next)=>{
     .then(data=>{console.log(data); res.json(data)})
 })
 
+//join activity PUT the participant in single activity
+router.put('/item/:actId/update', (req, res,next)=>{
+    let updates = req.body
+    activity.findOneAndUpdate({actId: req.params.actId}, updates)
+    .then(data=>{console.log(data); res.json(data)})
+    .catch(err => res.status(400).json("Error: " + err))
+})
+
 module.exports = router
