@@ -12,6 +12,12 @@ router.get('/', (req, res, next)=>{
         
 })
 
+// get single post
+router.get('/item/:postId', (req, res, next)=>{
+    community.find({postId: req.params.postId})
+    .then(data=>{console.log(data); res.json(data)})
+})
+
 //post new post
 router.post('/add', (req, res, next)=>{
     const saveCommunity = new community({

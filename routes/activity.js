@@ -38,9 +38,16 @@ router.get('/item/:actId', (req, res, next)=>{
 })
 
 //join activity PUT the participant in single activity
-router.put('/item/:actId/update', (req, res,next)=>{
+router.put('/item/update/:actId', (req, res, next)=>{
     let updates = req.body
     activity.findOneAndUpdate({actId: req.params.actId}, updates)
+    .then(data=>{console.log(data); res.json(data)})
+    .catch(err => res.status(400).json("Error: " + err))
+})
+
+// delete activity
+router.delete('/item/delete/:actId', (req, res, next)=>{
+    activity.findOneAndDelete(req.params.actId)
     .then(data=>{console.log(data); res.json(data)})
     .catch(err => res.status(400).json("Error: " + err))
 })
