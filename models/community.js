@@ -11,6 +11,9 @@ const communitySchema = mongoose.Schema({
     },
     text: {
         type:String
+    },
+    comments: {
+        type:Array
     }
 })
 

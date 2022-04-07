@@ -29,8 +29,16 @@ router.post('/add', (req, res, next)=>{
     saveCommunity.save()
 })
 
-//get my posts
+//uppdate comments in post
+router.put('/item/update/:postId', (req, res, next)=>{
+    let updates = req.body
+    console.log(updates)
 
-//get single post
+    community.findOneAndUpdate({postId: req.params.postId}, updates)
+    .then(data=>{console.log(data); res.json(data)})
+    .catch(err => res.status(400).json("Error: " + err))
+})
+
+
 
 module.exports = router;
