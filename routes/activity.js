@@ -27,8 +27,9 @@ router.post('/add', (req, res, next) => {
 })
 
 // get my activities
-router.get('/myAct', (req, res, next)=>{
-    
+router.get('/:myAct', (req, res, next)=>{
+    activity.find({username: req.params.myAct})
+    .then(data=>{console.log(data); res.json(data)})
 })
 
 // get single activities
@@ -47,7 +48,7 @@ router.put('/item/update/:actId', (req, res, next)=>{
 
 // delete activity
 router.delete('/item/delete/:actId', (req, res, next)=>{
-    activity.findOneAndDelete(req.params.actId)
+    activity.findOneAndDelete({actId: req.params.actId})
     .then(data=>{console.log(data); res.json(data)})
     .catch(err => res.status(400).json("Error: " + err))
 })

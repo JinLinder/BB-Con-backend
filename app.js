@@ -9,7 +9,7 @@ var mongoose = require('mongoose');
 //const user = require('./models/user')
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var userRouter = require('./routes/user');
 var loginRouter = require('./routes/login');
 var signupRouter=require('./routes/signup');
 var activityRouter = require('./routes/activity')
@@ -26,7 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/user', userRouter);
 app.use('/login', loginRouter);
 app.use('/signup', signupRouter);
 app.use('/activity', activityRouter);

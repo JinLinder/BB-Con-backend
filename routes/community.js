@@ -39,4 +39,11 @@ router.put('/item/update/:postId', (req, res, next)=>{
     .catch(err => res.status(400).json("Error: " + err))
 })
 
+// delete post
+router.delete('/item/delete/:postId', (req, res, next)=>{
+    community.findOneAndDelete({postId: req.params.postId})
+    .then(data=>{console.log(data); res.json(data)})
+    .catch(err => res.status(400).json("Error: " + err))
+})
+
 module.exports = router;
