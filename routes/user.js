@@ -11,5 +11,4 @@ router.get('/:userProfile', (req, res, next)=> {
 })
 
 
-
 module.exports = router;
