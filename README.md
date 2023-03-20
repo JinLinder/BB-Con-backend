@@ -3,7 +3,7 @@
 # Short introdution:
 This is the backend server with database connection for BB-Con application.
 
-For this project we used MongoDB as database. For the backend code, we used Express JS where we set up a server boilerplate.
+For this project MongoDB is used as database.
 
 # Structure:
 Models folder: for all the mongoose schema 
